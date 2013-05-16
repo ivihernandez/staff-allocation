@@ -12,7 +12,7 @@ import PODSimulation
 import ResultsAnalyzer
 
 class SimulatorRunner:
-    def run(self, seeds, capacities):
+    def run(self, seeds, capacities, parameterReader):
         """
             @param seed: seed for random numbers
             @param nsimul: number of simulations per each capacity configuration
@@ -25,7 +25,8 @@ class SimulatorRunner:
         simulations = []
         for seed in seeds:
             #greeter, screener, dispenser, medic]
-            simul = PODSimulation.PODSimulation(capacities)
+            simul = PODSimulation.PODSimulation(capacities,
+                                                parameterReader)
             simul.model(seed)
             simulations.append(simul)
             

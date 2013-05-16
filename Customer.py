@@ -110,7 +110,8 @@ class Customer(simpy.Process):
         yield simpy.request, self, self.resources[name]
         wait = simpy.now() - arrive
         self.monitors[name].observe(wait)
-        tib = 0.2#random.expovariate(1.0/self.times[name])
+        #tib = 0.2#random.expovariate(1.0/self.times[name])
+        tib = random.triangular(low=5, high=92, mode=23)
         yield simpy.hold,self,tib
         yield simpy.release, self, self.resources[name]
         p = random.random()

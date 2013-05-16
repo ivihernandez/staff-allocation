@@ -16,17 +16,19 @@ import psda
 import StaffAllocationProblem
 
 class ExperimentRunner:
-    def __init__(self, seeds):
+    def __init__(self, seeds, parameterReader):
         self.archiver = inspyred.ec.archivers.best_archiver
         self.seeds = seeds
         
         self.prng = random.Random()
         self.prng.seed(seeds[0])
+        self.parameterReader = parameterReader
     def run(self, runs, population, generations):
         solutions = []#store several solutions
         totalPopulation = []#store the population for the final pareto
         myArchive = []#store the pareto of the several runs
-        problem = StaffAllocationProblem.StaffAllocationProblem(seeds=self.seeds)
+        problem = StaffAllocationProblem.StaffAllocationProblem(seeds=self.seeds,
+                                                                parameterReader=self.parameterReader)
         for i in xrange(1, runs + 1):
             print "Experiment Runner", i
             sol = nsga2.nsga2_integer(prng=self.prng,
@@ -38,7 +40,7 @@ class ExperimentRunner:
             for ind in sol.archive:
                 totalPopulation.append(ind)
     
-        myArchive = self.archiver(random=self.prng,
+        self.myArchive = self.archiver(random=self.prng,
                              population=list(totalPopulation),
                              archive=list(myArchive),
                              args=None)
@@ -62,3 +64,8 @@ class ExperimentRunner:
         pylab.savefig('%s Example (%s).pdf' % ("nsga2", problem.__class__.__name__), format='pdf')
         if doPlot:
             pass#pylab.show()
+    def get_pareto(self):
+        """
+            @postcondition: the function run from this class should have been called.
+        """
+        return self.myArchive
