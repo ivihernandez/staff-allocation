@@ -7,6 +7,8 @@ Created on Sep 23, 2012
 import datetime
 from os import listdir
 from os.path import isfile, join
+import os, inspect, sys
+
 #non standard imports
 
 #ivan's imports
@@ -15,8 +17,21 @@ import ParameterReader
 import SolutionWriter
 import ExperimentRunner
 
+def load_modules_manually():
+    """
+        This function lets me use my other scripts.
+        It is necessary if running the program outside Aptana.
+        Aptana knows where the other modules are, thanks to the
+        external references properties.
+    """
+    #cmd_folder = os.path.realpath(os.path.abspath(os.path.split(inspect.getfile( inspect.currentframe() ))[0]))
+    cmd_folder = '../myutils/'
+    if cmd_folder not in sys.path:
+        sys.path.insert(0, cmd_folder)
+    #print sys.path
 def main():
-    
+    load_modules_manually()
+    #sys.exit()
     mypath = r'./experiments-to-run'
     experimentFiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
     

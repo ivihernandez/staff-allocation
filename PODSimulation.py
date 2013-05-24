@@ -21,7 +21,7 @@ import ResultsAnalyzer
 
 
 class PODSimulation:
-    def __init__(self, capacities, parameterReader):
+    def __init__(self, capacities, parameterReader=None):
         self.maxTime = 60# 24*60=1440 minutes
         self.maxNumber = 500000 #entities
         self.meanTBA = 1/200.0#1/float(115) #mean time between arrivals, minutes btw entities
@@ -29,7 +29,11 @@ class PODSimulation:
         self.capacities = capacities
         self.parameterReader = parameterReader
         
-        self.preScreenedPercentage = self.parameterReader.get_parameter('preScreenedPercentage')
+        
+        if parameterReader==None:
+            self.preScreenedPercentage = 0.1
+        else:
+            self.preScreenedPercentage = self.parameterReader.get_parameter('preScreenedPercentage')
         #print 'percentage', self.preScreenedPercentage 
         
         #positions = [greeter, screener, dispenser, medic]
@@ -279,7 +283,7 @@ if __name__ == '__main__':
     #greeter, screener, dispenser, medic
     print "program started"
     #capacities = [1,1,1,1]
-    capacities = [22, 19, 29, 1]
+    capacities = [5, 15, 15, 1]
     
     seeds = get_20_seeds()
     #seeds = [123]
