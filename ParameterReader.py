@@ -19,7 +19,7 @@ class ParameterReader:
         file = open(experimentFilePath, 'r')
         for line in file:
             elements = line.split(':')
-            self.parameters[elements[0]] = elements[1]
+            self.parameters[elements[0]] = float(elements[1])
     def get_parameter(self, parameterName):
         """
             @param parameterName: name of the parameter of interest

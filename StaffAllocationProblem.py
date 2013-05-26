@@ -27,7 +27,7 @@ class StaffAllocationProblem():
         
         # greeter, screener, dispenser, medic
         self.lowerBounds = [1, 1, 1, 1]
-        self.upperBounds = [45, 45, 45, 5] 
+        self.upperBounds = [60, 60, 60, 5] 
         #self.lowerBounds = [1, 1, 1, 1]
         #self.upperBounds = [3, 3, 3, 3]
         
@@ -68,7 +68,7 @@ class StaffAllocationProblem():
         dispensers = random.randint(self.lowerBounds[2], self.upperBounds[2])
         medics = random.randint(self.lowerBounds[3], self.upperBounds[3])
         choices = [greeters, screeners, dispensers, medics]
-        print 'choices', choices
+        #print 'choices', choices
         return choices
         """
         choices = range(1, self.maxEmployeesPerStation)

@@ -47,6 +47,7 @@ class Customer(simpy.Process):
             self.preScreened = True
         else:
             self.preScreened = False
+        
     def generate_forms(self):
         """
             Determine number and type of forms that the person carries.

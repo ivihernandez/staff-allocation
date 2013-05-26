@@ -1,1 +1,1 @@
-preScreenedPercentage: 0.1
+preScreenedPercentage: 0.10
