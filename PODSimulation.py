@@ -283,7 +283,7 @@ if __name__ == '__main__':
     #greeter, screener, dispenser, medic
     print "program started"
     #capacities = [1,1,1,1]
-    capacities = [5, 15, 15, 1]
+    capacities = [4, 6, 6, 1]
     
     seeds = get_20_seeds()
     #seeds = [123]

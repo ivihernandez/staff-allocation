@@ -27,7 +27,7 @@ class StaffAllocationProblem():
         
         # greeter, screener, dispenser, medic
         self.lowerBounds = [1, 1, 1, 1]
-        self.upperBounds = [60, 60, 60, 5] 
+        self.upperBounds = [1, 60, 60, 5] 
         #self.lowerBounds = [1, 1, 1, 1]
         #self.upperBounds = [3, 3, 3, 3]
         
