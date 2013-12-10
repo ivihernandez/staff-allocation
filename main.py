@@ -42,9 +42,10 @@ def main():
         experimentRunner = ExperimentRunner.ExperimentRunner(seeds, parameterReader)
         experimentRunner.run(runs=1,
                              population=100,
-                             generations=20)
+                             generations=5)
         solutionWriter = SolutionWriter.SolutionWriter(join(mypath,experimentFile),experimentRunner)
         solutionWriter.dumpSolution()
+        #solutionWriter.dumpResultsAnalyzer()
     
     
         
@@ -54,4 +55,4 @@ if __name__ == '__main__':
     main()
     endTime = datetime.datetime.now()
     print 'program finished',endTime 
-    print 'simulation lenght =', endTime - startTime
+    print 'simulation length =', endTime - startTime

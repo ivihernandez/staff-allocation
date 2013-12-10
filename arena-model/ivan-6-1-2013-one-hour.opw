@@ -1,0 +1,24 @@
+[RESOURCES]
+Screener
+Medic
+Dispenser
+Greeter
+[VARIABLES]
+PreScreened?.NumberOut True
+Dispensing or Medic?.NumberOut False
+Medical Evaluation.NumberOut
+Screening.NumberIn
+Screening.NumberOut
+Dispensing or Medic?.NumberOut True
+Dispensing.NumberIn
+Arrival of Patients.NumberOut
+Medical Evaluation.NumberIn
+Dispensing.NumberOut
+Greeting.NumberOut
+PreScreened status?.NumberOut False
+PreScreened status?.NumberOut True
+Greeting.NumberIn
+PreScreened?.NumberOut False
+Patients Leave.NumberOut
+Dispensing or Leaving?.NumberOut True
+Dispensing or Leaving?.NumberOut False

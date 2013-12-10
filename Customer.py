@@ -72,12 +72,14 @@ class Customer(simpy.Process):
         
         
         p = random.random()
-        if (p >= 0) and (p < 0.88):
+        if (p >= 0) and (p < 0.01):
+            formType = 'MEDIC'
+        elif (p >= 0.01) and (p < 0.89):
             formType = 'DOXYCYCLINE'
-        elif (p >= 0.88) and (p < 0.99):
-            formType = 'CIPROFLOXACIN'
         else:
-            formType = 'MEDICAL'
+            formType = 'CIPROFLOXACIN'
+        
+        
         self.forms = [formType] * numberOfForms
         self.numberOfForms = numberOfForms
         
@@ -98,7 +100,7 @@ class Customer(simpy.Process):
         yield simpy.request, self, self.entryResource
         wait = simpy.now() - arrive
         self.entryMonitor.observe(wait)
-        tib = 0#random.expovariate(1.0/self.times[name])   
+        tib = 0   
         yield simpy.hold,self,tib
         yield simpy.release, self, self.entryResource
     
@@ -111,8 +113,13 @@ class Customer(simpy.Process):
         yield simpy.request, self, self.resources[name]
         wait = simpy.now() - arrive
         self.monitors[name].observe(wait)
-        #tib = 0
-        tib = random.triangular(low=5/60.0, high=92/60.0, mode=23/60.0)
+        GREETER_ENABLED = True
+        if GREETER_ENABLED:
+            time = random.triangular(low=5/60.0, high=92/60.0, mode=23/60.0)
+            #time = random.triangular(low=1.77/60.0, high=2.66/60.0, mode=2.38/60.0)
+            tib = self.numberOfForms * time
+        else:
+            tib = 0
         yield simpy.hold,self,tib
         yield simpy.release, self, self.resources[name]
         p = random.random()

@@ -19,6 +19,33 @@ class SolutionWriter:
         """
         self.experimentFilePath = experimentFilePath
         self.experimentRunner = experimentRunner
+    def dumpResultsAnalyzer(self):
+        folderName = time.strftime("%a %d %b %Y %H %M %S", time.gmtime())
+        #os.mkdir(folderName)
+        experimentFileName = os.path.basename(self.experimentFilePath)
+        #print folderName, experimentFileName
+        destinationFilePath = os.path.join(folderName, experimentFileName)
+        
+        #copy original experiment
+        #shutil.copy(self.experimentFilePath, destinationFilePath)
+        #copy results
+        
+        
+        
+        pareto = self.experimentRunner.get_pareto()
+        index = 1
+        for solution in pareto:
+            resultsFile = 'results-' + str(index) + '.txt'
+            filePareto = open(os.path.join(folderName, resultsFile), 'w')
+            fitness = solution.fitness
+            values = fitness.values
+            resultsString = str(values)
+            filePareto.write(resultsString)
+            resultsAnalyzer = values.get_results_analyzer()
+            resultsString = str(resultsAnalyzer)
+            filePareto.write(resultsString)
+            filePareto.close()
+            index = index + 1
     def dumpSolution(self):
         #folderName = datetime.datetime.now()
         folderName = time.strftime("%a %d %b %Y %H %M %S", time.gmtime())
@@ -59,5 +86,5 @@ class SolutionWriter:
             filePareto.write(line + '\n')
         filePareto.close()
          
-        
+        self.dumpResultsAnalyzer()
         

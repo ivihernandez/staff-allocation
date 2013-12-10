@@ -49,11 +49,11 @@ class ExperimentRunner:
         for sol in myArchive:
             print sol
         
-        doPlot = True
-        
-        final_arc = myArchive
         
         
+        #final_arc = myArchive
+        
+        """
         import pylab
         x = []
         y = []
@@ -66,6 +66,7 @@ class ExperimentRunner:
         pylab.savefig('%s Example (%s).pdf' % ("nsga2", problem.__class__.__name__), format='pdf')
         if doPlot:
             pass#pylab.show()
+        """
     def get_pareto(self):
         """
             @postcondition: the function run from this class should have been called.

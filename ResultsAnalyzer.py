@@ -7,6 +7,7 @@ Created on Mar 21, 2013
 from collections import defaultdict
 import numpy
 import math
+import os
 from scipy import stats
 #ivan's imports
 import myutils
@@ -137,43 +138,51 @@ class ResultsAnalyzer:
     """
     def get_total_time(self):
         return self.maxTime
-    def show_results(self):
-        print "simulation time", self.maxTime
-        print "capacities", self.capacities
-        print "total resources", self.totalResources
-        print "Number In"
-        print "Average", "\t", "Half Width" 
-        print self.avgTotalNumberIn, "\t", self.halfWidthTotalNumberIn
-        print 
-        print "Number Out"
-        print "Average", "\t", "Half Width"
-        print self.avgTotalNumberOut, "\t", self.halfWidthTotalNumberOut
+    
+    def __str__(self):
         
-        print 
-        print "Waiting Time"
-        print "Average", "\t", "Half Width"
-        print self.avgTotalWaitingTime, "\t", self.halfWidthTotalWaitingTime
+        line = ""
+        line += "simulation time: " + str(self.maxTime) + os.linesep
+        line += "capacities: " + str(self.capacities) + os.linesep
+        line += "total resources: " + str(self.totalResources) + os.linesep
+        line += "Number In" + os.linesep
+        line += "Average" + "\t" + "Half Width" + os.linesep 
+        line += str(self.avgTotalNumberIn) + "\t" + str(self.halfWidthTotalNumberIn) + os.linesep
+        line += os.linesep
+        line += "Number Out" + os.linesep
+        line += "Average" + "\t" + "Half Width" + os.linesep
+        line += str(self.avgTotalNumberOut) + "\t" + str(self.halfWidthTotalNumberOut) + os.linesep
         
-        print
-        print "Waiting times (minutes), half width"
-        print "Name", "\t", "Average" , "\t", "Half Width"
+        line += os.linesep
+        line += "Waiting Time" + os.linesep
+        line += "Average" + "\t" + "Half Width" + os.linesep
+        line += str(self.avgTotalWaitingTime) + "\t" + str(self.halfWidthTotalWaitingTime) + os.linesep
+        
+        line += os.linesep
+        line += "Waiting times (minutes), half width" + os.linesep
+        line += "Name"+ "\t"+ "Average" + "\t"+ "Half Width" + os.linesep
         for key in self.waiting.keys():
-            print key, "\t", self.waiting[key], "\t", self.halfWidthWaitingTimes[key]
+            line += str(key) + "\t" + str(self.waiting[key]) + "\t" + str(self.halfWidthWaitingTimes[key]) + os.linesep
         
-        print
-        print "Number waiting"
-        print "Name", "\t", "Average" , "\t", "Half Width"
+        line += os.linesep
+        line +=  "Number waiting" + os.linesep
+        line += "Name"+ "\t"+ "Average" + "\t"+ "Half Width" + os.linesep
         for key in self.numberWaiting.keys():
-            print key, "\t", self.numberWaiting[key], "\t", self.halfWidthNumberWaiting[key]
+            line += str(key) + "\t" + str(self.numberWaiting[key]) + "\t" + str(self.halfWidthNumberWaiting[key]) + os.linesep
         
-        print 
-        print "Utilization (Beta test)"
-        print "Name", "\t", "Average" , "\t", "Half Width"
+        line += os.linesep
+        line += "Utilization (Beta test)" + os.linesep
+        line += "Name" + "\t" + "Average" + "\t" + "Half Width" + os.linesep
         for key in self.utilization.keys():
-            print key, "\t", self.utilization[key], "\t", self.halfWidthUtilization[key] 
+            line += str(key) + "\t" + str(self.utilization[key]) + "\t" + str(self.halfWidthUtilization[key]) + os.linesep
         
-        print 
-        print "Number seized"
-        print "Name", "\t", "Average" , "\t", "Half Width"
+        line += os.linesep
+        line += "Number seized" + os.linesep
+        line += "Name" + "\t" + "Average" + "\t" + "Half Width" + os.linesep
         for key in self.seized.keys():
-            print key, "\t", self.seized[key], "\t", self.halfWidthNumberSeized[key]
+            line += str(key) + "\t" + str(self.seized[key]) + "\t" + str(self.halfWidthNumberSeized[key]) + os.linesep
+            
+        return line
+    def show_results(self):
+        mystr = str(self)
+        print mystr

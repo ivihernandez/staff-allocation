@@ -1,0 +1,235 @@
+
+                                      ARENA Simulation Results
+                                 ivihernandez - License: 1943006633
+
+                                  Summary for Replication 1 of 3
+
+Project: Unnamed Project                                             Run execution date : 9/ 3/2013
+Analyst: ivihernandez                                                Model revision date: 9/ 3/2013
+
+Replication ended at time      : 60.0 Minutes 
+Base Time Units: Minutes
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+Patients.VATime                             1.1644     .07738     .08005     9.8728        743    
+Patients.NVATime                            .00000     .00000     .00000     .00000        743    
+Patients.WaitTime                           27.797     (Corr)     .00000     55.560        743    
+Patients.TranTime                           .00000     .00000     .00000     .00000        743    
+Patients.OtherTime                          .00000     .00000     .00000     .00000        743    
+Patients.TotalTime                          28.962     (Corr)     .43299     56.286        743    
+Medical Evaluation.Queue.WaitingTime        .46109     (Insuf)    .00000     2.1729         11    
+Dispensing.Queue.WaitingTime                11.942     (Corr)     .00000     23.870        753    
+Screening.Queue.WaitingTime                 2.5966E-04 3.7846E-04 .00000     .05368       1141    
+Greeting.Queue.WaitingTime                  26.934     (Corr)     .00000     53.747       1267    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Patients.WIP                                5638.1     (Corr)     .00000     11211.     11211.    
+Screener.NumberBusy                         5.9482     .27818     .00000     10.000     9.0000    
+Screener.NumberScheduled                    10.000     (Insuf)    10.000     10.000     10.000    
+Screener.Utilization                        .59482     .02782     .00000     1.0000     .90000    
+Medic.NumberBusy                            .33874     (Insuf)    .00000     1.0000     1.0000    
+Medic.NumberScheduled                       1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Medic.Utilization                           .33874     (Insuf)    .00000     1.0000     1.0000    
+Dispenser.NumberBusy                        9.8293     (Insuf)    .00000     10.000     10.000    
+Dispenser.NumberScheduled                   10.000     (Insuf)    10.000     10.000     10.000    
+Dispenser.Utilization                       .98293     (Insuf)    .00000     1.0000     1.0000    
+Greeter.NumberBusy                          1.9999     (Insuf)    .00000     2.0000     2.0000    
+Greeter.NumberScheduled                     2.0000     (Insuf)    2.0000     2.0000     2.0000    
+Greeter.Utilization                         .99999     (Insuf)    .00000     1.0000     1.0000    
+Medical Evaluation.Queue.NumberInQueue      .08453     (Insuf)    .00000     1.0000     .00000    
+Dispensing.Queue.NumberInQueue              252.00     (Corr)     .00000     502.00     502.00    
+Screening.Queue.NumberInQueue               .00494     (Insuf)    .00000     2.0000     .00000    
+Greeting.Queue.NumberInQueue                5367.9     (Corr)     .00000     10687.     10687.    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Patients.NumberIn                           11954.    
+Patients.NumberOut                          743.00    
+Screener.NumberSeized                       1141.0    
+Screener.ScheduledUtilization               .59482    
+Medic.NumberSeized                          11.000    
+Medic.ScheduledUtilization                  .33874    
+Dispenser.NumberSeized                      753.00    
+Dispenser.ScheduledUtilization              .98293    
+Greeter.NumberSeized                        1267.0    
+Greeter.ScheduledUtilization                .99999    
+System.NumberOut                            743.00    
+
+Beginning replication 2 of 3
+
+                                      ARENA Simulation Results
+                                 ivihernandez - License: 1943006633
+
+                                  Summary for Replication 2 of 3
+
+Project: Unnamed Project                                             Run execution date : 9/ 3/2013
+Analyst: ivihernandez                                                Model revision date: 9/ 3/2013
+
+Replication ended at time      : 60.0 Minutes 
+Base Time Units: Minutes
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+Patients.VATime                             1.1035     .08959     .05721     7.4922        819    
+Patients.NVATime                            .00000     .00000     .00000     .00000        819    
+Patients.WaitTime                           26.721     (Corr)     .00000     55.637        819    
+Patients.TranTime                           .00000     .00000     .00000     .00000        819    
+Patients.OtherTime                          .00000     .00000     .00000     .00000        819    
+Patients.TotalTime                          27.825     (Corr)     .37362     56.110        819    
+Medical Evaluation.Queue.WaitingTime        .45109     (Insuf)    .00000     2.5180         12    
+Dispensing.Queue.WaitingTime                9.6925     (Corr)     .00000     21.244        828    
+Screening.Queue.WaitingTime                 5.5454E-04 3.2621E-04 .00000     .07343       1166    
+Greeting.Queue.WaitingTime                  26.835     (Corr)     .00000     53.701       1281    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Patients.WIP                                5620.0     (Corr)     .00000     11266.     11266.    
+Screener.NumberBusy                         5.9788     .20573     .00000     10.000     6.0000    
+Screener.NumberScheduled                    10.000     (Insuf)    10.000     10.000     10.000    
+Screener.Utilization                        .59789     .02057     .00000     1.0000     .60000    
+Medic.NumberBusy                            .48199     (Insuf)    .00000     1.0000     1.0000    
+Medic.NumberScheduled                       1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Medic.Utilization                           .48199     (Insuf)    .00000     1.0000     1.0000    
+Dispenser.NumberBusy                        9.8501     (Insuf)    .00000     10.000     10.000    
+Dispenser.NumberScheduled                   10.000     (Insuf)    10.000     10.000     10.000    
+Dispenser.Utilization                       .98501     (Insuf)    .00000     1.0000     1.0000    
+Greeter.NumberBusy                          1.9999     (Insuf)    .00000     2.0000     2.0000    
+Greeter.NumberScheduled                     2.0000     (Insuf)    2.0000     2.0000     2.0000    
+Greeter.Utilization                         1.0000     (Insuf)    .00000     1.0000     1.0000    
+Medical Evaluation.Queue.NumberInQueue      .09022     (Insuf)    .00000     1.0000     .00000    
+Dispensing.Queue.NumberInQueue              210.92     (Corr)     .00000     445.00     443.00    
+Screening.Queue.NumberInQueue               .01078     (Insuf)    .00000     2.0000     .00000    
+Greeting.Queue.NumberInQueue                5390.6     (Corr)     .00000     10804.     10804.    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Patients.NumberIn                           12085.    
+Patients.NumberOut                          819.00    
+Screener.NumberSeized                       1166.0    
+Screener.ScheduledUtilization               .59789    
+Medic.NumberSeized                          12.000    
+Medic.ScheduledUtilization                  .48199    
+Dispenser.NumberSeized                      828.00    
+Dispenser.ScheduledUtilization              .98501    
+Greeter.NumberSeized                        1281.0    
+Greeter.ScheduledUtilization                1.0000    
+System.NumberOut                            819.00    
+
+Beginning replication 3 of 3
+
+                                      ARENA Simulation Results
+                                 ivihernandez - License: 1943006633
+
+                                  Summary for Replication 3 of 3
+
+Project: Unnamed Project                                             Run execution date : 9/ 3/2013
+Analyst: ivihernandez                                                Model revision date: 9/ 3/2013
+
+Replication ended at time      : 60.0 Minutes 
+Base Time Units: Minutes
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+Patients.VATime                             1.1897     .13525     .04865     9.6604        728    
+Patients.NVATime                            .00000     .00000     .00000     .00000        728    
+Patients.WaitTime                           25.099     (Corr)     .00000     55.440        728    
+Patients.TranTime                           .00000     .00000     .00000     .00000        728    
+Patients.OtherTime                          .00000     .00000     .00000     .00000        728    
+Patients.TotalTime                          26.289     (Corr)     .20047     56.784        728    
+Medical Evaluation.Queue.WaitingTime        .97595     (Insuf)    .00000     4.4654         11    
+Dispensing.Queue.WaitingTime                10.260     (Corr)     .00000     24.167        738    
+Screening.Queue.WaitingTime                 1.1023E-04 1.2769E-04 .00000     .04541       1122    
+Greeting.Queue.WaitingTime                  26.667     (Corr)     .00000     53.757       1254    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Patients.WIP                                5645.7     (Corr)     .00000     11370.     11370.    
+Screener.NumberBusy                         5.7592     .20293     .00000     10.000     5.0000    
+Screener.NumberScheduled                    10.000     (Insuf)    10.000     10.000     10.000    
+Screener.Utilization                        .57593     .02029     .00000     1.0000     .50000    
+Medic.NumberBusy                            .51499     (Insuf)    .00000     1.0000     .00000    
+Medic.NumberScheduled                       1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Medic.Utilization                           .51499     (Insuf)    .00000     1.0000     .00000    
+Dispenser.NumberBusy                        9.8872     (Insuf)    .00000     10.000     10.000    
+Dispenser.NumberScheduled                   10.000     (Insuf)    10.000     10.000     10.000    
+Dispenser.Utilization                       .98873     (Insuf)    .00000     1.0000     1.0000    
+Greeter.NumberBusy                          1.9999     (Insuf)    .00000     2.0000     2.0000    
+Greeter.NumberScheduled                     2.0000     (Insuf)    2.0000     2.0000     2.0000    
+Greeter.Utilization                         .99999     (Insuf)    .00000     1.0000     1.0000    
+Medical Evaluation.Queue.NumberInQueue      .17892     (Insuf)    .00000     2.0000     .00000    
+Dispensing.Queue.NumberInQueue              226.11     (Corr)     .00000     509.00     509.00    
+Screening.Queue.NumberInQueue               .00206     (Insuf)    .00000     2.0000     .00000    
+Greeting.Queue.NumberInQueue                5401.2     (Corr)     .00000     10844.     10844.    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Patients.NumberIn                           12098.    
+Patients.NumberOut                          728.00    
+Screener.NumberSeized                       1122.0    
+Screener.ScheduledUtilization               .57593    
+Medic.NumberSeized                          11.000    
+Medic.ScheduledUtilization                  .51499    
+Dispenser.NumberSeized                      738.00    
+Dispenser.ScheduledUtilization              .98873    
+Greeter.NumberSeized                        1254.0    
+Greeter.ScheduledUtilization                .99999    
+System.NumberOut                            728.00    
+
+
+                                      ARENA Simulation Results
+                                 ivihernandez - License: 1943006633
+
+                                  Output Summary for 3 Replications
+
+Project: Unnamed Project                                             Run execution date : 9/ 3/2013
+Analyst: ivihernandez                                                Model revision date: 9/ 3/2013
+
+
+                                             OUTPUTS
+
+Identifier                                 Average    Half-width Minimum    Maximum # Replications
+___________________________________________________________________________________________________
+
+Patients.NumberIn                           12045.     197.88     11954.     12098.     3
+Patients.NumberOut                          763.33     121.20     728.00     819.00     3
+Screener.NumberSeized                       1143.0     54.824     1122.0     1166.0     3
+Screener.ScheduledUtilization               .58954     .02955     .57593     .59789     3
+Medic.NumberSeized                          11.333     1.4343     11.000     12.000     3
+Medic.ScheduledUtilization                  .44524     .23277     .33874     .51499     3
+Dispenser.NumberSeized                      773.00     119.79     738.00     828.00     3
+Dispenser.ScheduledUtilization              .98556     .00729     .98293     .98873     3
+Greeter.NumberSeized                        1267.3     33.546     1254.0     1281.0     3
+Greeter.ScheduledUtilization                .99999     1.3462E-05 .99999     1.0000     3
+System.NumberOut                            763.33     121.20     728.00     819.00     3
+
+Simulation run time: 0.78 minutes.
+Simulation run complete.

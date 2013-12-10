@@ -4,6 +4,7 @@ Created on Sep 24, 2012
 @author: ivihernandez
 '''
 #standard imports
+import datetime
 import random
 from collections import defaultdict
 import operator
@@ -22,6 +23,10 @@ import ResultsAnalyzer
 
 class PODSimulation:
     def __init__(self, capacities, parameterReader=None):
+        """
+            @param capacities: list of resources assigned to each queue.
+            positions = [greeter, screener, dispenser, medic] 
+        """
         self.maxTime = 60# 24*60=1440 minutes
         self.maxNumber = 500000 #entities
         self.meanTBA = 1/200.0#1/float(115) #mean time between arrivals, minutes btw entities
@@ -36,7 +41,7 @@ class PODSimulation:
             self.preScreenedPercentage = self.parameterReader.get_parameter('preScreenedPercentage')
         #print 'percentage', self.preScreenedPercentage 
         
-        #positions = [greeter, screener, dispenser, medic]
+        
         self.resources = {} #resource name -> resource
         self.monitors = {} #resource name -> monitor
         self.times = {} #resource name -> avg. time
@@ -90,6 +95,9 @@ class PODSimulation:
     def get_capacities(self):
         return self.capacities
     def model(self, seed):
+        """
+            This function starts the simulation process
+        """
         random.seed(seed)
         
         
@@ -116,7 +124,7 @@ class PODSimulation:
     
     def get_avg_waiting_times(self):
         """
-            get avg. waiting time per service
+            @return: avg. waiting time per service for all services
         """
         sum = 0
         for key in self.monitors.keys():
@@ -130,26 +138,28 @@ class PODSimulation:
         return sum
     
     def get_resource_count(self):
+        """
+            @return: the total number of resources assigned to all queues.
+        """
         sum = 0
         for key in self.resources.keys():
             value = self.resources[key].capacity
             sum += value
         return sum
     def get_number_out(self):
+        """
+            @return: the avg. number of entities that exited the system.
+        """
         return self.exitMonitor.count()
     def get_number_in(self):
+        """
+            @return: the avg. number of entities created.
+        """
         return self.entryMonitor.count()
     
-    def plot_stats(self):
-        plt = simplot.SimPlot()
-        plt.plotStep(self.monitors['greeter'],color='blue')
-        plt.plotStep(self.monitors['screener'],color='red')
-        plt.plotStep(self.monitors['dispenser'],color='green')
-        plt.plotStep(self.monitors['medic'],color='purple')
-        plt.mainloop()
     def get_number_waiting(self, key):
         """
-            Return the average number of people waiting for the resource
+            @return: the average number of people waiting for the resource
             named "key". This is a weighted average, weighted by
             the amount of time in which the queue had a given size.
             
@@ -177,65 +187,41 @@ class PODSimulation:
         
         
         
-        #simpy
-        """
-        simPyRet = self.resources[key].waitMon.timeAverage()
-        if simPyRet == None:
-            #print self.resources[key].waitMon
-            simPyRet = 0.0
-        """
-        
-        
         
     def get_utilization(self, key):
         """
             @param key: name of the queue
-             
+            @desc: this function computes the average utilization of 
+            the resources of a particular queue. The function assumes that
+            the simulation finishes by reaching the maximum allowed time 
+            (i.e. self.maxTime) 
         """
-        """
-            Not implemented yet
-            See: 
-            http://simpy.sourceforge.net/SimPyDocs/Manual.html
-            http://simpy.sourceforge.net/SimPyDocs/Manual.html#recording-resource-queue-lengths
-            
-            for possible solutions
-        """
-        return 0
-        """
-        #print "active queue",self.resources[key].activeQ
-        val = self.resources[key].actMon.timeAverage()
-        if val == None:
-            val = 0
-        return val
-        """
-        
-        monitor = self.resources[key].waitMon #list of [time, size]
-        waiting = defaultdict(float)
-        total = 0
-        for i in range(len(monitor)):
-            if i == 0:
-                continue
-            index = monitor[i - 1][1]
-            if index == 0:
-                continue
-            timeSpan = monitor[i][0] - monitor[i - 1][0]
-            waiting[index] += timeSpan
-            total += timeSpan 
-        #include last state of the queue
-        index = monitor[len(monitor) - 1][1]
-        if index != 0:
-            timeSpan = self.maxTime - monitor[len(monitor) - 1][0]
-            waiting[index] += timeSpan
-            total += timeSpan 
-        ret = total / float(self.maxTime)
-        
-        #print "Ivan", ret
-        #ret = self.resources[key].waitMon.timeAverage()
-        
-        #print "SimPy", ret
+        sum = 0
+        startTime = 0
+        weight = 0
+        capacity = float(self.resources[key].capacity)
+        for item in self.resources[key].actMon:
+            (endTime, numberActive) = item
+            time = endTime - startTime
+            sum += weight * time
+            #update time and weight
+            startTime = endTime
+            weight = numberActive/capacity
         
         
-        return ret
+        #add final time
+        (startTime, numberActive) = self.resources[key].actMon[-1] 
+        endTime = self.maxTime
+        time = endTime - startTime
+        sum += weight * time
+        utilization = sum / float(self.maxTime)
+        
+        return utilization
+        
+        
+        
+        
+        
         
           
 
@@ -281,7 +267,9 @@ def get_20_seeds():
          
 if __name__ == '__main__':
     #greeter, screener, dispenser, medic
-    print "program started"
+    
+    startTime = datetime.datetime.now()
+    print "program started:", startTime
     #capacities = [1,1,1,1]
     capacities = [4, 6, 6, 1]
     
@@ -294,4 +282,6 @@ if __name__ == '__main__':
         simulations.append(simul)
     resultsAnalyzer = ResultsAnalyzer.ResultsAnalyzer(simulations)
     resultsAnalyzer.show_results()
-    print "program finished"
+    endTime = datetime.datetime.now()
+    print "program finished:", endTime 
+    print "simulation length: ", endTime - startTime

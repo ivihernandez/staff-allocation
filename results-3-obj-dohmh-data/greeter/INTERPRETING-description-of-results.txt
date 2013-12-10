@@ -1,0 +1,10 @@
+First line has three numbers [X,Y,Z]
+X = Total Resources
+Y = Waiting Time (in minutes)
+Z = Throughput (Households per hour)
+
+The second line has the capacities of the stations, four numbers [A, B, C, D]
+A = Line Manager
+B = Screener
+C = Dispenser
+D = Medic
